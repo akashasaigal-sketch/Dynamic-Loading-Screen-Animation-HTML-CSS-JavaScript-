@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0f172a;
+    font-family: arial, sans-serif;
+}
+.loader-box{
+    width: 500px;
+}
+
+.loader-text{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.loader-container{
+    width: 100px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(10px);
+    box-shadow: 
+    inset 0 0 12px rgba(255, 255, 255, 0.05),
+    0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.loader-fill{
+    width: 0%;
+    height: 100%;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, #00dbde, #7b61ff, #fc00ff);
+    transition: width .08s linear;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.35);
+}
+
+.loader-fill::before{
+    content: "";
+    position: absolute;
+    width: 220%;
+    height: 300%;
+    top: -130%;
+    left: -50%;
+    border-radius: 42%;
+    background: radial-gradient(circle, rgba(255, 255, 255, .35)0%,
+    transparent 60%);
+    animation: wave 5s linear infinite;
+}
+
+.loader-fill::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        transparent 20%
+        rgba(255, 255, 255, .28) 40%,
+        transparent 60%
+    );
+    animation: shine 2s linear infinite;
+}
+
+@keyframes wave{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
